@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:stretchColumns="*"
+    android:padding="20dp" >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/pin_enterprompt"
+            android:id="@+id/PINPromptView"
+            android:layout_column="0"
+            android:layout_span="5"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:id="@+id/space1"
+            android:layout_column="0"
+            android:layout_span="5"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/pin_1"
+            android:id="@+id/button1"
+            android:layout_column="1"
+            />
+
+        <Button
+            android:text="@string/pin_2"
+            android:id="@+id/button2"
+            android:layout_column="2"
+            />
+
+        <Button
+            android:text="@string/pin_3"
+            android:id="@+id/button3"
+            android:layout_column="3"
+            />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/pin_4"
+            android:id="@+id/button4"
+            android:layout_column="1"
+            />
+
+        <Button
+            android:text="@string/pin_5"
+            android:id="@+id/button5"
+            android:layout_column="2"
+            />
+
+        <Button
+            android:text="@string/pin_6"
+            android:id="@+id/button6"
+            android:layout_column="3"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/pin_7"
+            android:id="@+id/button7"
+            android:layout_column="1"
+            />
+
+        <Button
+            android:text="@string/pin_8"
+            android:id="@+id/button8"
+            android:layout_column="2"
+            />
+
+        <Button
+            android:text="@string/pin_9"
+            android:id="@+id/button9"
+            android:layout_column="3"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/pin_CLR"
+            android:id="@+id/buttonCLR"
+            android:layout_column="1"
+            />
+
+        <Button
+            android:text="@string/pin_0"
+            android:id="@+id/button0"
+            android:layout_column="2"
+            />
+
+        <Button
+            android:text="@string/pin_DEL"
+            android:id="@+id/buttonDEL"
+            android:layout_column="3"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:id="@+id/space2"
+            android:layout_column="0"
+            android:layout_span="5"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_span="5">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb1"
+                android:clickable="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb2"
+                android:clickable="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb3"
+                android:clickable="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb4"
+                android:clickable="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb5"
+                android:clickable="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb6"
+                android:clickable="false"
+                />
+        </LinearLayout>
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="a.keymaster.CreateKeyActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:stretchColumns="*"
+    android:padding="10dp">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/cka_prompt"
+            android:id="@+id/cka_prompt"
+            android:layout_column="0"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/cka_blank1"
+            android:layout_column="0"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_0"
+            android:layout_column="0"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_1"
+            android:layout_column="1"
+            android:onClick="buttonClicked" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_2"
+            android:layout_column="2"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_3"
+            android:layout_column="3"
+            android:onClick="buttonClicked" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_4"
+            android:layout_column="0"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_5"
+            android:layout_column="1"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_6"
+            android:layout_column="2"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_7"
+            android:layout_column="3"
+            android:onClick="buttonClicked" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_8"
+            android:layout_column="0"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_9"
+            android:layout_column="1"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_10"
+            android:layout_column="2"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_11"
+            android:layout_column="3"
+            android:onClick="buttonClicked" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_12"
+            android:layout_column="0"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_13"
+            android:layout_column="1"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_14"
+            android:layout_column="2"
+            android:onClick="buttonClicked" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cka_def"
+            android:id="@+id/btn_15"
+            android:layout_column="3"
+            android:onClick="buttonClicked" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/blank2"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/cka_resdef"
+            android:id="@+id/cka_result"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:layout_span="4" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/blank3"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/cka_resprompt"
+            android:id="@+id/resultprompt"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/blank4"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/cka_resdef"
+            android:id="@+id/cka_pubkey"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:layout_span="4" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/blank5"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/cka_keynameprompt"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/cka_nameprompt"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:layout_span="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cka_namefield"
+            android:layout_column="1"
+            android:layout_span="3"
+            android:inputType="text" />
+
+    </TableRow>
+
+</TableLayout>

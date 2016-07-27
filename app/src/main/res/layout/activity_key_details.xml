@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    tools:context=".KeyDetailsActivity"
+    android:padding="10dp"
+    android:stretchColumns="1"
+    android:shrinkColumns="0"
+    >
+
+    <TableRow android:padding="20dp">
+        <TextView android:id="@+id/keydetails_namelabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kda_namelabel"
+            android:textAppearance="?android:attr/textAppearanceLarge">
+        </TextView>
+
+        <TextView
+            android:id="@+id/keydetails_keyname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/kda_nameexample"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_span="2">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/keydetails_pubbutton"
+                android:clickable="true"
+                android:text="@string/kda_publabel"
+                android:onClick="publicQR_CB"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/keydetails_privbutton"
+                android:clickable="true"
+                android:text="@string/kda_privlabel"
+                android:onClick="privateQR_CB"
+                />
+        </RadioGroup>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/keydetails_qr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:src="@drawable/keymaster_qr"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/keydetails_keyval"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/kda_calculating"
+            android:layout_span="2"
+            />
+    </TableRow>
+</TableLayout>
+

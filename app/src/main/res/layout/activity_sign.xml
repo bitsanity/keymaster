@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="a.keymaster.SignActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#000000">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+             android:textAppearance="?android:attr/textAppearanceLarge"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="@string/sa_keyLbl"
+             android:id="@+id/sa_challengerLbl"
+            android:textColor="#ffffff" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:layout_weight="1"
+            android:id="@+id/sa_blank1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/cka_resdef"
+            android:id="@+id/sa_challengerkey"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:typeface="monospace"
+            android:textColor="#ffffff" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:layout_weight="1"
+            android:id="@+id/sa_blank2" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sa_rspLbl"
+            android:id="@+id/sa_responseLbl"
+            android:textColor="#ffffff"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:layout_weight="1"
+            android:id="@+id/sa_blank3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sa_qr"
+        android:src="@drawable/keymaster_qr"
+        />
+    </TableRow>
+
+</TableLayout>

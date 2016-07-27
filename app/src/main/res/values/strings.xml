@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">keymaster</string>
+
+    <string name="title_activity_pin">Device Security</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="pin_newprompt">Please specify a new PIN:</string>
+    <string name="pin_rptprompt">Please confirm new PIN:</string>
+    <string name="pin_enterprompt">Please enter your 6-digit PIN:</string>
+    <string name="pin_1">1</string>
+    <string name="pin_2">2</string>
+    <string name="pin_3">3</string>
+    <string name="pin_4">4</string>
+    <string name="pin_5">5</string>
+    <string name="pin_6">6</string>
+    <string name="pin_7">7</string>
+    <string name="pin_8">8</string>
+    <string name="pin_9">9</string>
+    <string name="pin_0">0</string>
+    <string name="pin_CLR">CLR</string>
+    <string name="pin_DEL">DEL</string>
+
+    <!-- KeyListActivity -->
+    <string name="kla_nkf">[no key found]</string>
+    <string name="kla_use">Sign</string>
+    <string name="kla_details">Show</string>
+    <string name="kla_create">New Key &#8230;</string>
+    <string name="kla_badchallenge">Challenge not valid!</string>
+
+    <!-- Create Key Activity -->
+    <string name="cka_prompt">Click each button (any order):</string>
+    <string name="cka_def">FFFF</string>
+    <string name="cka_resdef">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</string>
+    <string name="cka_resprompt">Your new Key:</string>
+    <string name="cka_wait">Calculating &#8230;</string>
+    <string name="cka_keynameprompt">Name:</string>
+    <string name="cka_nameexists">Key already exists.</string>
+    <string name="title_activity_keydetails">Key Details</string>
+
+    <!-- Key Details Activity -->
+    <string name="kda_namelabel">Key Name:</string>
+    <string name="kda_publabel">Public</string>
+    <string name="kda_privlabel">Private</string>
+    <string name="kda_gobtnlbl">OK</string>
+    <string name="kda_nameexample">[selected key]</string>
+    <string name="kda_calculating">-- please be patient --</string>
+
+    <!-- Sign Activity -->
+    <string name="sa_keyLbl">Challenger Key:</string>
+    <string name="sa_rspLbl">Our Response:</string>
+    <string name="kda_waitmsg">Busy. Please Wait.</string>
+</resources>
