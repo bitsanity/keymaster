@@ -3,6 +3,8 @@
 An Android app that implements the role of a "keymaster" in a conversation with
 anything in the role of "gatekeeper".
 
+A subsystem of [ADILOS](https://github.com/bitsanity/ADILOS)
+
 ## Functions:
 
 1. Create and confirm a PIN
