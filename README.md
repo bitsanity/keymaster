@@ -34,7 +34,8 @@ anything in the role of "gatekeeper".
 - github.com/wg/scrypt
 
 ** Bouncy Castle **
-- for Base64 conversion only, not using JCE functionality
+- TODO: replace with rmd160.c and remove dependency
+- for RIPEMD160
 - www.bouncycastle.org/java.html
 
 ** Google's ZXing library **
@@ -51,4 +52,17 @@ anything in the role of "gatekeeper".
 ## Cons:
 
 1. Contains C code called via JNI, requiring additional dev work
+
+## Where to Start:
+
+Build the C code (needs Android SDK+NDK)
+- download/build secp256k1 from github
+- look into: keymaster/app/src/main/jni/make.sh
+
+Import keymaster filetree to Android Studio and build APK:
+- volunteer to undergo full tax audit
+- beat self in head until fist is bloody mess, change hands
+- pursue PhD in 18th century Chinese Opera
+- all more appealing than sorting out Android build/JNI process although Studio
+  pretty good overall, really
 

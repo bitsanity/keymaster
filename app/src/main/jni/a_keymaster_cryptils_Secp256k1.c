@@ -9,7 +9,7 @@
 // constants - sizes in bytes
 #define SEEDLEN 32
 #define PVTKEYSZ 32
-#define PUBKEYSZ 65
+#define PUBKEYSZ 33 // compressed
 #define TWKSIZE 32
 
 secp256k1_context* pCONTEXT = NULL;
@@ -76,19 +76,18 @@ JNIEXPORT jbyteArray JNICALL Java_a_keymaster_cryptils_Secp256k1_publicKeyCreate
     return NULL;
 
   // 
-  // pubkey struct is opaque - call serialize function to get a byte array
-  // library returns a 65-byte array containing the uncompressed pub key
+  // pubkey struct is opaque - call serialize function to convert to byte array
+  // we choose to return a compressed key
   //
   unsigned char serialPubKey[ PUBKEYSZ ];
 
   size_t outLen = (size_t)PUBKEYSZ;
-  int compressed = SECP256K1_EC_UNCOMPRESSED;
 
   (void)secp256k1_ec_pubkey_serialize( pCONTEXT,
                                        (unsigned char *)serialPubKey,
                                        &outLen,
                                        &pubkey,
-                                       compressed );
+                                       SECP256K1_EC_COMPRESSED );
 
   jbyteArray result = (*env)->NewByteArray( env, PUBKEYSZ );
 

@@ -19,7 +19,12 @@ export SYSROOT="$NDK/platforms/android-15/arch-arm"
 
 # Ensure the android toolchain has been set up
 export ANDROID_TC="/tmp/android-toolchain/bin"
-[ ! -d "$ANDROID_TC" ] && echo "Need $ANDROID_TC" && exit 1
+if [ ! -d "$ANDROID_TC" ]
+then
+  echo "Making $ANDROID_TC"
+  $NDK/build/tools/make-standalone-toolchain.sh \
+    --arch=arm --platform=android-15 --install-dir=/tmp/android-toolchain
+fi
 
 # Ensure path contains the binaries we will need to compile the C stub and
 # link its object code to the external shared library

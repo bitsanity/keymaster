@@ -4,6 +4,7 @@ package a.keymaster.cryptils;
 //
 // In a better world we would store private keys in BIP38 format, but ...
 // ... performance of BIP38 (when it calls into SCrypt) is unacceptable
+// on test device
 
 import java.util.Arrays;
 
