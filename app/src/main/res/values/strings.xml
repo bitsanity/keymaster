@@ -50,4 +50,5 @@
     <string name="sa_keyLbl">Challenger Key:</string>
     <string name="sa_rspLbl">Our Response:</string>
     <string name="kda_waitmsg">Busy. Please Wait.</string>
+    <string name="sa_b64value">Base64Sample</string>
 </resources>

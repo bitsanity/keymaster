@@ -23,6 +23,7 @@ public class SignActivity extends AppCompatActivity {
 
         TextView challKey = (TextView) findViewById( R.id.sa_challengerkey );
         ImageView qrView = (ImageView) findViewById( R.id.sa_qr);
+        TextView challTxt = (TextView) findViewById( R.id.sa_responseTxt );
 
         Intent caller = getIntent();
         String challenge = caller.getStringExtra( "challenge" );
@@ -41,6 +42,8 @@ public class SignActivity extends AppCompatActivity {
             String response = mh.toString();
             Bitmap qr = QR.encode( response, Globals.QR_WIDTH, Globals.QR_HEIGHT );
             qrView.setImageBitmap( qr );
+            challTxt.setText( response );
+
         } catch (Exception e) {
             Toast.makeText( getApplicationContext(), "oops: " + e.getMessage(),
                     Toast.LENGTH_LONG ).show();

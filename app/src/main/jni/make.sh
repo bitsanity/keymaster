@@ -46,7 +46,7 @@ export CMD="$CC $CFLAGS $INCLDIRS $CSOURCES -o $OUTPUT $LDFLAGS $EXTLDR$EXTLIB"
 echo
 echo $CMD
 echo
-#$CMD
+$CMD
 
 export ARCH="armeabi"
 export EXTLDR="./lib/$ARCH/"

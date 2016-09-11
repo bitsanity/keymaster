@@ -167,13 +167,16 @@ JNIEXPORT jboolean JNICALL Java_a_keymaster_cryptils_Secp256k1_verifyECDSA
 
   jbyte* jkey = (*env)->GetByteArrayElements( env, in_pubkey, NULL );
   len = (*env)->GetArrayLength( env, in_pubkey );
-  if ( NULL == jkey || (jsize)PUBKEYSZ != len ) return JNI_FALSE;
+  if ( NULL == jkey ) return JNI_FALSE;
   unsigned char * pubkeybytes = (unsigned char *)jkey;
 
   // convert pubkey from serialized to opaque form
 
   secp256k1_pubkey pubkey;
-  if ( 1 != secp256k1_ec_pubkey_parse(pCONTEXT, &pubkey, pubkeybytes, PUBKEYSZ) )
+  if ( 1 != secp256k1_ec_pubkey_parse( pCONTEXT,
+                                       &pubkey,
+                                       pubkeybytes,
+                                       len ) )
     return JNI_FALSE;
 
   // java to C - hash32
