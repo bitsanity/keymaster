@@ -58,13 +58,8 @@ A subsystem of [ADILOS](https://github.com/bitsanity/ADILOS)
 ## Where to Start:
 
 Build the C code (needs Android SDK+NDK)
-- download/build secp256k1 from github
-- look into: keymaster/app/src/main/jni/make.sh
+- download secp256k1 from github
+- cross-compile for target platform using NDK
+- run: keymaster/app/src/main/jni/make.sh
 
-Import keymaster filetree to Android Studio and build APK:
-- volunteer to undergo full tax audit
-- beat self in head until fist is bloody mess, change hands
-- pursue PhD in 18th century Chinese Opera
-- all more appealing than sorting out Android build/JNI process although Studio
-  pretty good overall, really
-
+Import keymaster filetree to Android Studio and build APK
