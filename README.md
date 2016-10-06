@@ -7,15 +7,13 @@ A subsystem of [ADILOS](https://github.com/bitsanity/ADILOS)
 
 ## Functions:
 
-1. Create and confirm a PIN
-2. Create a new highly-random cryptographic key
-3. Assign unique name to new key
-4. Show public version of key as QR code
-5. Show private version of key as BIP38-encrypted content in QR code
-6. Use selected key to create a digitally signed response to a challenge
-   from a "gatekeeper"
+1. PIN protection
+2. Create a new cryptographic key with a unique name
+3. Show public version of key as QR code
+4. Show private version of key as BIP38-encrypted content in QR code
+5. Use selected key to create a response to a challenge from a "gatekeeper"
 7. scan, parse and validate a QR code of a gatekeeper challenge
-8. produce a QR code of the valid result to the challenge
+8. produce and display a QR code of the valid response
 
 ## Dependencies:
 
@@ -35,25 +33,20 @@ A subsystem of [ADILOS](https://github.com/bitsanity/ADILOS)
 - com.lambdaworks
 - github.com/wg/scrypt
 
-** Bouncy Castle **
-- TODO: replace with rmd160.c and remove dependency
-- for RIPEMD160
-- www.bouncycastle.org/java.html
-
 ** Google's ZXing library **
 - github.com/zxing/zxing
 
 ## Pros:
 
-1. Yields optical-channel digital sign-in to gatekeeper devices
-2. Replaces physical keys, magnetic keycards, swipe-cards, debit/credit cards
-3. Requires no network - smart phone can be used even without cell or WiFi
-4. Aproprietary and open-source
-5. Does not require third-party/pay service
+1. optical-channel
+2. replace physical stuff with virtual keys
+3. no network connection needed
+4. aproprietary, open-source
+5. no third-party required to operate
 
 ## Cons:
 
-1. Contains C code called via JNI, requiring additional dev work
+1. C code called via JNI needs cross-compilation
 
 ## Where to Start:
 
@@ -62,4 +55,3 @@ Build the C code (needs Android SDK+NDK)
 - cross-compile for target platform using NDK
 - run: keymaster/app/src/main/jni/make.sh
 
-Import keymaster filetree to Android Studio and build APK
