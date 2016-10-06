@@ -3,9 +3,6 @@
 # ============================================================================
 # script compiles the C code and makes a shared library including it and the
 # lib(s) it depends on
-#
-# needs the .h file produced by compiling the native class declaration
-#
 # ============================================================================
 
 # Ensure Android NDK exists
@@ -26,12 +23,19 @@ then
     --arch=arm --platform=android-15 --install-dir=/tmp/android-toolchain
 fi
 
+# compilation needs .h's produced by compiling the native class declaration
+javah -cp ../java:. a.keymaster.cryptils.Secp256k1
+javah -cp ../java:. a.keymaster.cryptils.RIPEMD160
+
 # Ensure path contains the binaries we will need to compile the C stub and
 # link its object code to the external shared library
 echo $PATH | grep -q "$ANDROID_TC"
 [ $? -eq 0 ] && export PATH="$ANDROID_TC:$PATH"
 
-export CSOURCES="a_keymaster_cryptils_Secp256k1.c"
+export CSOURCES=\
+"a_keymaster_cryptils_Secp256k1.c\
+ a_keymaster_cryptils_RIPEMD160.c"
+
 export EXTLIB="libsecp256k1.a"
 
 export CC="$ANDROID_TC/arm-linux-androideabi-gcc --sysroot=$SYSROOT"

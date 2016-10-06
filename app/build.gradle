@@ -31,6 +31,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.0'
     compile files('libs/core-3.2.1.jar')
-    compile files('libs/bcprov-jdk15on-154.jar')
     compile files('libs/scrypt-1.4.0.jar')
 }

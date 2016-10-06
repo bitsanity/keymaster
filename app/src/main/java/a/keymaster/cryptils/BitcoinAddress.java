@@ -1,25 +1,20 @@
 package a.keymaster.cryptils;
 
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-
 import a.keymaster.Globals;
 
 public class BitcoinAddress {
-    public BitcoinAddress( byte[] pvkey ) throws Exception
-    {
-        byte[] pubkey_ = Globals.instance().curve().publicKeyCreate( pvkey );
-        byte[] hashed = SHA256.hash(pubkey_);
+  public BitcoinAddress( byte[] pvkey ) throws Exception
+  {
+    byte[] pubkey_ = Globals.instance().curve().publicKeyCreate( pvkey );
+    byte[] hashed = SHA256.hash(pubkey_);
 
-        RIPEMD160Digest dig = new RIPEMD160Digest();
-        dig.update( hashed, 0, hashed.length );
-        byte[] riped = new byte[dig.getDigestSize()];
-        dig.doFinal( riped, 0 );
+    byte[] riped = new RIPEMD160().digest( hashed );
 
-        // prepend the 0x00 for MAIN bitcoin network
-        byte[] riped2 = ByteOps.prepend( MAIN, riped );
+    // prepend the 0x00 for MAIN bitcoin network
+    byte[] riped2 = ByteOps.prepend( MAIN, riped );
 
-        addressB58Check_ = Base58Check.encode( riped2 );
-    }
+    addressB58Check_ = Base58Check.encode( riped2 );
+  }
 
     public String publicAddress()
     {
