@@ -34,7 +34,8 @@ echo $PATH | grep -q "$ANDROID_TC"
 
 export CSOURCES=\
 "a_keymaster_cryptils_Secp256k1.c\
- a_keymaster_cryptils_RIPEMD160.c"
+ a_keymaster_cryptils_RIPEMD160.c\
+ rmd160.c"
 
 export EXTLIB="libsecp256k1.a"
 
