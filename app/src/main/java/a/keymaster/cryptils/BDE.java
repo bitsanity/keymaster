@@ -15,7 +15,8 @@ public class BDE {
         if (null == pvkey || 32 != pvkey.length)
             throw new Exception( "BDE.encrypt: key invalid" );
 
-        if (!checkArgs(kname,pin)) throw new Exception( "BDE.encrypt(): bad args" );
+        if (!checkArgs(kname,pin))
+          throw new Exception( "BDE.encrypt(): bad args" );
 
         byte[] r1 = Arrays.copyOfRange( pvkey, 0, 16 );
         byte[] r2 = Arrays.copyOfRange( pvkey, 16, 32 );

@@ -13,7 +13,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.MessageHolder;
 import a.keymaster.cryptils.SHA256;
 import a.keymaster.cryptils.Secp256k1;
 
@@ -104,23 +103,9 @@ public class KeyListActivity extends AppCompatActivity implements AdapterView.On
                 String challenge = data.getStringExtra( "SCAN_RESULT" );
 
                 try {
-                    MessageHolder holder = MessageHolder.parse( challenge );
-                    byte[] gkpubkey = holder.msg();
-                    byte[] gksig = holder.sig();
-                    Secp256k1 curve = new Secp256k1();
-
-                    // check message was indeed signed by holder of provided pubkey
-                    if (curve.verifyECDSA( gksig, SHA256.hash(gkpubkey), gkpubkey )) {
-                        Intent intent = new Intent( this, SignActivity.class );
-                        intent.putExtra( "challenge", challenge );
-                        startActivity( intent );
-                    }
-                    else {
-                        Toast.makeText( getApplicationContext(),
-                                        /* getString(R.string.kla_badchallenge) + */ HexString.encode(gkpubkey),
-                                        Toast.LENGTH_LONG )
-                             .show();
-                    }
+                    Intent intent = new Intent( this, SignActivity.class );
+                      intent.putExtra( "challenge", challenge );
+                      startActivity( intent );
                 } catch( Exception e ) {
                     Toast.makeText( getApplicationContext(), "oops: " + e.getMessage(), Toast.LENGTH_LONG )
                             .show();

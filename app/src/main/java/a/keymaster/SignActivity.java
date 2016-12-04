@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 import a.keymaster.cryptils.BDE;
 import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.MessageHolder;
+import a.keymaster.cryptils.Message;
+import a.keymaster.cryptils.MessagePart;
 import a.keymaster.cryptils.QR;
 import a.keymaster.cryptils.SHA256;
 
@@ -29,16 +30,24 @@ public class SignActivity extends AppCompatActivity {
         String challenge = caller.getStringExtra( "challenge" );
 
         try {
-            MessageHolder hldr = MessageHolder.parse(challenge);
-            challKey.setText( HexString.encode(hldr.msg()) );
+            Message msg = Message.parse(challenge);
+
+            challKey.setText( HexString.encode(msg.part(0).key()) );
+
             KeyRing kr = new KeyRing( getSharedPreferences(Globals.instance().getPrefsName(), MODE_PRIVATE) );
             String keyBl = kr.pvtKeyBlack( Globals.instance().selectedKeyName() );
             byte[] privkey = BDE.decrypt( keyBl, Globals.instance().selectedKeyName(), Globals.instance().getPIN() );
             byte[] mypubkey = Globals.instance().curve().publicKeyCreate( privkey );
 
-            byte[] sigOfChallenge = Globals.instance().curve().signECDSA( SHA256.hash(hldr.msg()), privkey );
+            // always sign the last signature in the message
+            byte[] toSign = msg.part( msg.parts() - 1 ).sig();
 
-            MessageHolder mh = new MessageHolder( mypubkey, sigOfChallenge );
+            byte[] sigOfChallenge = Globals.instance().curve().signECDSA(
+              SHA256.hash(toSign), privkey );
+
+            Message mh = new Message( new MessagePart[] {
+              new MessagePart(mypubkey, sigOfChallenge) } );
+
             String response = mh.toString();
             Bitmap qr = QR.encode( response, Globals.QR_WIDTH, Globals.QR_HEIGHT );
             qrView.setImageBitmap( qr );
