@@ -11,9 +11,9 @@
 // ----------------------------------------------
 
 JNIEXPORT jbyteArray JNICALL
-Java_tbox_RIPEMD160_digest ( JNIEnv * env,
-                             jclass clss,
-                             jbyteArray msg )
+Java_a_keymaster_cryptils_RIPEMD160_digest ( JNIEnv * env,
+                                             jclass clss,
+                                             jbyteArray msg )
 {
   jbyte* jmsg = (*env)->GetByteArrayElements( env, msg, NULL );
   jsize len = (*env)->GetArrayLength( env, msg );
@@ -23,21 +23,9 @@ Java_tbox_RIPEMD160_digest ( JNIEnv * env,
   memcpy( cbuff, jmsg, len );
   cbuff[len] = '\0';
 
-printf( "msg: %s", cbuff );
-
   byte* result = RMD( (byte *)cbuff );
 
   free( cbuff );
-
-printf( "\nres: " );
-
-int ii;
-for (ii=0;ii<20;ii++)
-  printf( "%02x", result[ii] );
-
-
-printf( "\n" );
-fflush( stdout );
 
   jbyteArray jresult = (*env)->NewByteArray( env, 20 );
 
