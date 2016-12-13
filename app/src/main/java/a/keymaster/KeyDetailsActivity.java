@@ -1,5 +1,8 @@
 package a.keymaster;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +59,13 @@ public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
             Bitmap qr = QR.encode( pubkey, Globals.QR_WIDTH, Globals.QR_HEIGHT );
             qr_.setImageBitmap( qr );
             keyVal_.setText( pubkey );
+
+            ClipboardManager clipboard =
+              (ClipboardManager)getSystemService( Context.CLIPBOARD_SERVICE );
+
+            ClipData clip = ClipData.newPlainText("simple text", pubkey );
+            clipboard.setPrimaryClip( clip );
+
         } catch( Exception e ) {
             Toast.makeText( getApplicationContext(), "oops: " + e.getMessage(), Toast.LENGTH_SHORT )
                     .show();

@@ -1,5 +1,8 @@
 package a.keymaster;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
@@ -52,6 +55,15 @@ public class SignActivity extends AppCompatActivity {
             Bitmap qr = QR.encode( response, Globals.QR_WIDTH, Globals.QR_HEIGHT );
             qrView.setImageBitmap( qr );
             //rspTxt.setText( response );
+
+            // convenience - copy data to clipboard so it can be pasted in
+            // another app
+            ClipboardManager clipboard =
+              (ClipboardManager)getSystemService( Context.CLIPBOARD_SERVICE );
+
+            ClipData clip = ClipData.newPlainText("simple text", response );
+
+            clipboard.setPrimaryClip( clip );
 
         } catch (Exception e) {
             Toast.makeText( getApplicationContext(), "oops: " + e.getMessage(),
