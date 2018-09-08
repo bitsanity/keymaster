@@ -82,6 +82,13 @@ public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
             Bitmap qr = QR.encode( keyBIP38_, Globals.QR_WIDTH, Globals.QR_HEIGHT );
             qr_.setImageBitmap( qr );
             keyVal_.setText( keyBIP38_ );
+
+            ClipboardManager clipboard =
+              (ClipboardManager)getSystemService( Context.CLIPBOARD_SERVICE );
+
+            ClipData clip = ClipData.newPlainText("simple text", HexString.encode(keyBIP38_) );
+            clipboard.setPrimaryClip( clip );
+
         } catch( Exception e ) {
             Toast.makeText( getApplicationContext(), "oops: " + e.getMessage(), Toast.LENGTH_SHORT )
                  .show();
