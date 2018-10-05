@@ -15,7 +15,6 @@ import a.keymaster.cryptils.BDE;
 import a.keymaster.cryptils.BIP38;
 import a.keymaster.cryptils.HexString;
 import a.keymaster.cryptils.QR;
-import a.keymaster.cryptils.Secp256k1;
 
 public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
 
@@ -86,7 +85,7 @@ public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
             ClipboardManager clipboard =
               (ClipboardManager)getSystemService( Context.CLIPBOARD_SERVICE );
 
-            ClipData clip = ClipData.newPlainText("simple text", HexString.encode(keyBIP38_) );
+            ClipData clip = ClipData.newPlainText("simple text", keyBIP38_ );
             clipboard.setPrimaryClip( clip );
 
         } catch( Exception e ) {
