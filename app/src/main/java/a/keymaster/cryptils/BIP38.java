@@ -4,9 +4,7 @@ import com.lambdaworks.crypto.SCrypt;
 
 import java.util.Arrays;
 
-// warning: performance of SCrypt is very poor - multiplle different implementations have
-//          same problem. Use very sparingly like for export only - can take 45 seconds
-//          to over 1 minute on Samsung Galaxy Nexus
+// warning: performance of SCrypt is very poor. Can take 45 seconds to 1 min
 
 public class BIP38 {
     public static String encrypt( byte[] pvkey, String pphrase ) throws Exception

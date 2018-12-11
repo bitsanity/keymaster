@@ -1,5 +1,8 @@
 package a.keymaster;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +70,7 @@ public class KeyListActivity extends AppCompatActivity implements AdapterView.On
         Intent intent = null;
 
         if (cmd.equalsIgnoreCase(getString(R.string.kla_use))) {
+            // ref: stackoverflow.com/questions/7724579/how-to-make-an-android-app-that-depends-on-another-app
             try {
                 intent = new Intent( "com.google.zxing.client.android.SCAN" );
                 intent.putExtra( "SCAN_MODE", "QR_CODE_MODE" );
@@ -74,8 +78,9 @@ public class KeyListActivity extends AppCompatActivity implements AdapterView.On
                 startActivityForResult( intent, 0 );
                 return; // dont fall through and restart the intent or it just wont return
             } catch (Exception e) {
-                Uri marketUri = Uri.parse( "market://details?id=com.google.zxing.client.android" );
-                intent = new Intent( Intent.ACTION_VIEW, marketUri );
+                createAlert( "Barcode Scanner required.",
+                  "keymaster relies on a separate app, the free/open source barcode scanner by ZXing Team. " +
+                  "Please install this in order to use keymaster.", true );
             }
         }
         else if (cmd.equalsIgnoreCase(getString(R.string.kla_details))) {
@@ -87,6 +92,27 @@ public class KeyListActivity extends AppCompatActivity implements AdapterView.On
 
         startActivity( intent );
     } // end keyAction
+
+    public void createAlert( String title, String message, Boolean button ) {
+
+        // http://androidideasblog.blogspot.com/2010/02/how-to-add-messagebox-in-android.html
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle( title );
+        alertDialog.setMessage( message );
+
+        if ((button)) {
+          alertDialog.setButton(Dialog.BUTTON_POSITIVE,"OK",new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+              Intent browserIntent = new Intent( Intent.ACTION_VIEW,
+                Uri.parse("market://search?q=pname:com.google.zxing.client.android"));
+              startActivity(browserIntent);
+            }
+          });
+        }
+
+        alertDialog.show();
+    }
 
     @Override
     public void onItemClick(AdapterView<?> av, View v, int position, long id ) {
