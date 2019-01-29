@@ -14,10 +14,7 @@ import android.widget.Toast;
 import java.security.SecureRandom;
 import java.util.Arrays;
 
-import a.keymaster.cryptils.BDE;
-import a.keymaster.cryptils.ByteOps;
-import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.SHA256;
+import a.keymaster.cryptils.*;
 
 public class CreateKeyActivity extends AppCompatActivity implements Runnable {
 
@@ -79,7 +76,9 @@ public class CreateKeyActivity extends AppCompatActivity implements Runnable {
                         String blkey = BDE.encrypt( pvkey_, nameField_.getText().toString(), Globals.instance().getPIN() );
                         byte[] checkit = BDE.decrypt( blkey, nameField_.getText().toString(), Globals.instance().getPIN() );
 
-                        if (!Arrays.equals(pvkey_, checkit)) throw new Exception( "Key Enc fail" );
+                        if (!Arrays.equals(pvkey_, checkit)) {
+                          throw new Exception( "Key Enc fail" );
+                        }
 
                         kr.appendKey( nameField_.getText().toString(), blkey );
                     }

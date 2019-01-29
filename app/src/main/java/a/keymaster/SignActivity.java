@@ -11,12 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import a.keymaster.cryptils.BDE;
-import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.Message;
-import a.keymaster.cryptils.MessagePart;
-import a.keymaster.cryptils.QR;
-import a.keymaster.cryptils.SHA256;
+import a.keymaster.cryptils.*;
 
 public class SignActivity extends AppCompatActivity {
 
@@ -52,7 +47,7 @@ public class SignActivity extends AppCompatActivity {
               new MessagePart(mypubkey, sigOfChallenge) } );
 
             String response = mh.toString();
-            Bitmap qr = QR.encode( response, Globals.QR_WIDTH, Globals.QR_HEIGHT );
+            Bitmap qr = QR.encode( response, Globals.QR_SIZE );
             qrView.setImageBitmap( qr );
             //rspTxt.setText( response );
 

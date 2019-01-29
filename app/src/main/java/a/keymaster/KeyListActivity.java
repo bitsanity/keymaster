@@ -15,9 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.SHA256;
-import a.keymaster.cryptils.Secp256k1;
+import a.keymaster.cryptils.*;
 
 public class KeyListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

@@ -9,9 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.SHA256;
-import a.keymaster.cryptils.Secp256k1;
+import a.keymaster.cryptils.*;
 
 public class MainActivity extends AppCompatActivity {
     private StringBuilder pinBldr_ = new StringBuilder();

@@ -5,6 +5,9 @@
 # lib(s) it depends on
 # ============================================================================
 
+# HACK: switch to android-16 breaks gcc. workaround is using older version
+export NDK="$HOME/Android/android-ndk-r15c"
+
 # Ensure Android NDK exists
 [ -z "$NDK" ] && echo "NDK variable must be set" && exit 1
 
@@ -23,24 +26,23 @@ then
     --arch=arm --platform=android-15 --install-dir=/tmp/android-toolchain
 fi
 
-# compilation needs .h's produced by compiling the native class declaration
-javah -cp ../java:. a.keymaster.cryptils.Secp256k1
-javah -cp ../java:. a.keymaster.cryptils.RIPEMD160
+# NOTE: .c and .h files copied from github.com/bitsanity/cryptils project,
+#       not generated here
 
 # Ensure path contains the binaries we will need to compile the C stub and
 # link its object code to the external shared library
 echo $PATH | grep -q "$ANDROID_TC"
 [ $? -eq 0 ] && export PATH="$ANDROID_TC:$PATH"
 
+echo "PATH is $PATH"
+
 export CSOURCES=\
-"a_keymaster_cryptils_Secp256k1.c\
- a_keymaster_cryptils_RIPEMD160.c\
- rmd160.c"
+"a_keymaster_cryptils_Secp256k1.c"
 
 export EXTLIB="libsecp256k1.a"
 
 export CC="$ANDROID_TC/arm-linux-androideabi-gcc --sysroot=$SYSROOT"
-export INCLDIRS="-I/home/skull/secp256k1/include -I."
+export INCLDIRS="-I$HOME/secp256k1/include -I."
 
 export ARCH="armeabi-v7a"
 export EXTLDR="./lib/$ARCH/"

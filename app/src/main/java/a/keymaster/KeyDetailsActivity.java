@@ -11,10 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import a.keymaster.cryptils.BDE;
-import a.keymaster.cryptils.BIP38;
-import a.keymaster.cryptils.HexString;
-import a.keymaster.cryptils.QR;
+import java.util.Arrays;
+
+import a.keymaster.cryptils.*;
 
 public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
 
@@ -55,7 +54,7 @@ public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
 
         try {
             String pubkey = HexString.encode( Globals.instance().curve().publicKeyCreate(privKey_) );
-            Bitmap qr = QR.encode( pubkey, Globals.QR_WIDTH, Globals.QR_HEIGHT );
+            Bitmap qr = QR.encode( pubkey, Globals.QR_SIZE );
             qr_.setImageBitmap( qr );
             keyVal_.setText( pubkey );
 
@@ -78,7 +77,7 @@ public class KeyDetailsActivity extends AppCompatActivity implements Runnable {
         }
 
         try {
-            Bitmap qr = QR.encode( keyBIP38_, Globals.QR_WIDTH, Globals.QR_HEIGHT );
+            Bitmap qr = QR.encode( keyBIP38_, Globals.QR_SIZE );
             qr_.setImageBitmap( qr );
             keyVal_.setText( keyBIP38_ );
 

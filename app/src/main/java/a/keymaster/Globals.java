@@ -1,10 +1,9 @@
 package a.keymaster;
 
-import a.keymaster.cryptils.Secp256k1;
+import a.keymaster.cryptils.*;
 
 public class Globals {
-    public final static int QR_WIDTH = 600;
-    public final static int QR_HEIGHT = 600;
+    public final static int QR_SIZE = 600;
 
     public static Globals instance() {
         return instance_;
