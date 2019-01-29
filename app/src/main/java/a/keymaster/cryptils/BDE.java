@@ -30,7 +30,8 @@ public class BDE {
 
     public static byte[] decrypt( String black, String kname, String pin )
     throws Exception {
-        if (!checkArgs(kname,pin)) throw new Exception( "BDE.encrypt(): bad args" );
+        if (!checkArgs(kname,pin))
+          throw new Exception( "BDE.encrypt(): bad args" );
 
         byte[] blackBytes = HexString.decode( black );
         byte[] b1 = Arrays.copyOfRange( blackBytes, 0, 16 );
