@@ -18,13 +18,13 @@ export SYSROOT="$NDK/platforms/android-15/arch-arm"
 [ ! -d "$SYSROOT" ] && echo "Need SYSROOT: " $SYSROOT && exit 1
 
 # Ensure the android toolchain has been set up
-export ANDROID_TC="/tmp/android-toolchain/bin"
-if [ ! -d "$ANDROID_TC" ]
-then
-  echo "Making $ANDROID_TC"
-  $NDK/build/tools/make-standalone-toolchain.sh \
-    --arch=arm --platform=android-15 --install-dir=/tmp/android-toolchain
-fi
+export ANDROID_TC="$HOME/temp/android-toolchain/bin"
+echo "Making $ANDROID_TC"
+$NDK/build/tools/make-standalone-toolchain.sh \
+  --force \
+  --arch=arm \
+  --platform=android-15 \
+  --install-dir=$HOME/temp/android-toolchain
 
 # NOTE: .c and .h files copied from github.com/bitsanity/cryptils project,
 #       not generated here
@@ -33,8 +33,6 @@ fi
 # link its object code to the external shared library
 echo $PATH | grep -q "$ANDROID_TC"
 [ $? -eq 0 ] && export PATH="$ANDROID_TC:$PATH"
-
-echo "PATH is $PATH"
 
 export CSOURCES=\
 "a_keymaster_cryptils_Secp256k1.c"
@@ -60,6 +58,29 @@ export EXTLDR="./lib/$ARCH/"
 export OUTPUT="../jniLibs/$ARCH/libkeymaster.so"
 export CFLAGS="-shared"
 export LDFLAGS=""
+export CMD="$CC $CFLAGS $INCLDIRS $CSOURCES -o $OUTPUT $LDFLAGS $EXTLDR$EXTLIB"
+echo
+echo $CMD
+echo
+$CMD
+
+# ==========================================================================
+# Adding 64-bit version. Android-21 is minimum release level for 64-bit h/w
+# ==========================================================================
+export SYSROOT="$NDK/platforms/android-21/arch-arm64"
+[ ! -d "$SYSROOT" ] && echo "Need SYSROOT: " $SYSROOT && exit 1
+
+echo "Making temp 64-bit toolchain"
+$NDK/build/tools/make-standalone-toolchain.sh \
+    --force \
+    --arch=arm64 \
+    --platform=android-21 \
+    --install-dir=$HOME/temp/android-toolchain
+
+export ARCH="arm64-v8a"
+export EXTLDR="./lib/$ARCH/"
+export OUTPUT="../jniLibs/$ARCH/libkeymaster.so"
+export CC="$ANDROID_TC/aarch64-linux-android-gcc --sysroot=$SYSROOT"
 export CMD="$CC $CFLAGS $INCLDIRS $CSOURCES -o $OUTPUT $LDFLAGS $EXTLDR$EXTLIB"
 echo
 echo $CMD
