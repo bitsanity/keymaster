@@ -10,9 +10,9 @@ public class BitcoinAddress
     if ( !curve.privateKeyIsValid(pvkey) )
       throw new Exception( "BitcoinAddress(): bad key" );
 
-    byte[] pubkey = curve.uncompressPublicKey( curve.publicKeyCreate(pvkey) );
+    byte[] pubkey = curve.publicKeyCreate( pvkey );
 
-    if (pubkey.length != 65)
+    if (pubkey.length != 33)
       throw new Exception( "BitcoinAddress(): public key invalid" );
 
     byte[] hashed = SHA256.hash( pubkey );
